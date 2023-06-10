@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/templatemo-tiya-golf-club.css" rel="stylesheet">
+
+    <style>
+     
+        .struct{
+            z-index: 5px;
+            box-shadow: 8px 8px 8px grey;
+            border: groove rgb(17, 16, 17);
+            height: 70vh;
+            width: 40vw;
+            background-color: rgb(97, 95, 95);
+            justify-content: center;
+            padding-left: 10%;
+            margin: auto;
+            margin-top: 6%;
+            padding-bottom: 5%;
+        }
+
+        body{
+            background-image: url("back.jpg");
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    
+
+    <nav title="navigation-bar" class="navigate">
+        <div style="position: absolute; right: 1; left: 0; margin-top: .5%;" class="d-none d-lg-block ms-lg-3">
+                            <a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="../activities/index.html" role="button" aria-controls="offcanvasExample">Home</a>
+                        </div>
+                        <br>
+        <center><h2 style="font-family: Tahoma; font-size: 40px; color: darkkhaki; 2px 2px 4px #000000;">Friend Registry</h2><center>
+    </nav>
+    <section>
+        <div class="struct">
+            <h3>REGISTRATION FORM</h3>
+                <form action="https://script.google.com/macros/s/AKfycbyV3DGc1_0tSTq7AHwg7fGxWsKpQsrdQMKwvVhFKFRvVzpnCI0r_CfBSsa6vVA_RH9cZA/exec" method="post">
+                            <label for="first">First name:</label><br>
+                            <input type="text" id="first" name="first" value="first name"><br>
+                            <label for="last">Last name:</label><br>
+                            <input type="text" id="last" name="last" value="last name"><br>
+
+                        <label id="gender" for="gender">gender:</label><br>
+                        <input type="radio" id="gender" name="gender" value="Male">
+                        <label for="gender">Male</label><br>
+                        <input type="radio" id="gender" name="gender" value="Female">
+                        <label for="gender">Female</label><br>
+                        <input type="radio" id="gender" name="gender" value="neutral">
+                        <label for="gender">Other genders</label>
+                        <br/>
+
+                        <label for="birth">Birthday:</label>
+                        <input type="date" id="birth" name="birth">
+
+                        <br/><br/>                       
+                    <label id="email-label" for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Input Email Address"
+          required
+        />
+        <br/>
+        <br/>
+        <label id="pass" for="pass">Password</label>
+        <input type="password" id="pass" name="pass" minlength="6" placeholder="Input Password"><br>
+
+                    
+                <br/>
+                    <input type="submit" id="submit">
+                    <input type="reset">
+
+                </form>
+            </div> 
+    </section>
+
+
+  </main>
+  
+</body>
+</html>
