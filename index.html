@@ -2,14 +2,10 @@
 <html>
 <head>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-        <link href="css/bootstrap-icons.css" rel="stylesheet">
-
-        <link href="css/templatemo-tiya-golf-club.css" rel="stylesheet">
-
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/templatemo-tiya-golf-club.css" rel="stylesheet">
     <style>
-     
-        .struct{
+        .struct {
             z-index: 5px;
             box-shadow: 8px 8px 8px grey;
             border: groove rgb(17, 16, 17);
@@ -23,7 +19,7 @@
             padding-bottom: 5%;
         }
 
-        body{
+        body {
             background-image: url("back.jpg");
             background-size: cover;
             font-family: Arial, sans-serif;
@@ -32,91 +28,83 @@
             margin: 0;
             padding: 0;
         }
-        
     </style>
 </head>
 <body>
-    
-
     <nav title="navigation-bar" class="navigate">
         <div style="position: absolute; right: 1; left: 0; margin-top: .5%; text-shadow: 2px 2px 4px #000000;" class="d-none d-lg-block ms-lg-3">
-                            <a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="../activities/index.html" role="button" aria-controls="offcanvasExample">Back</a>
-                        </div>
-                        <br>
-        <center><h2 style="font-family: sans-serif; font-size: 40px; color: beige; 2px 2px 4px #000000; text-shadow: 2px 2px 4px #000000;">Friend Registry</h2><center>
+            <a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="../activities/index.html" role="button" aria-controls="offcanvasExample">Back</a>
+        </div>
+        <br>
+        <center>
+            <h2 style="font-family: sans-serif; font-size: 40px; color: beige; 2px 2px 4px #000000; text-shadow: 2px 2px 4px #000000;">Friend Registry</h2>
+        </center>
     </nav>
     <section>
         <div class="struct">
             <h3>REGISTRATION FORM</h3>
             <form id="registrationForm">
-                            <label for="first">First name:</label><br>
-                            <input type="text" id="first" name="first" value="first name"><br>
-                            <label for="last">Last name:</label><br>
-                            <input type="text" id="last" name="last" value="last name"><br>
+                <label for="first">First name:</label><br>
+                <input type="text" id="first" name="first" placeholder="First name"><br>
+                <label for="last">Last name:</label><br>
+                <input type="text" id="last" name="last" placeholder="Last name"><br>
 
-                        <label id="gender" for="gender">gender:</label><br>
-                        <input type="radio" id="gender" name="gender" value="Male">
-                        <label for="gender">Male</label><br>
-                        <input type="radio" id="gender" name="gender" value="Female">
-                        <label for="gender">Female</label><br>
-                        <input type="radio" id="gender" name="gender" value="neutral">
-                        <label for="gender">Other genders</label>
-                        <br/>
+                <label for="gender">Gender:</label><br>
+                <input type="radio" id="male" name="gender" value="Male">
+                <label for="male">Male</label><br>
+                <input type="radio" id="female" name="gender" value="Female">
+                <label for="female">Female</label><br>
+                <input type="radio" id="other" name="gender" value="Other">
+                <label for="other">Other</label><br>
 
-                        <label for="birth">Birthday:</label>
-                        <input type="date" id="birth" name="birth">
+                <label for="birth">Birthday:</label>
+                <input type="date" id="birth" name="birth">
 
-                        <br/><br/>                       
-                    <label id="email-label" for="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Input Email Address"
-          required
-        />
-        <br/>
-        <br/>
-        <label id="pass" for="pass">Password</label>
-        <input type="password" id="pass" name="pass" minlength="6" placeholder="Input Password"><br>
+                <br><br>
 
-                    
-                <br/>
-                    <input type="submit" id="submit">
-                    <input type="reset">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Input Email Address" required><br>
 
-                </form>
-                     </div> 
+                <label for="pass">Password:</label>
+                <input type="password" id="pass" name="pass" minlength="6" placeholder="Input Password"><br>
+
+                <br>
+                <input type="submit" value="Submit">
+                <input type="reset">
+            </form>
+            <div id="msg"></div> <!-- Added this line -->
+        </div>
     </section>
 
-     <script>
-        let form = document.getElementById("registrationForm");
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            let submitButton = form.querySelector('input[type="submit"]');
-            submitButton.value = "Submitting...";
+    <script>
+    let form = document.getElementById("registrationForm");
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let submitButton = form.querySelector('input[type="submit"]');
+        submitButton.value = "Submitting...";
 
-            let data = new FormData(form);
-            // Encode home address value
-            const homeAddress = document.querySelector("#address").value;
-            data.set("homeaddress", encodeURIComponent(homeAddress));
+        let data = new FormData(form);
 
-            fetch('https://script.google.com/macros/s/AKfycbyEUPJ0WAzVlxz4mV2NDry7fgAgBpcSMWICVOEwpNH1NA5AGCFdkdYVcQYe5Je7oLv11w/exec', {
-                    method: 'POST',
-                    body: data
-                })
-                .then(res => res.text())
-                .then(data => {
-                    document.querySelector("#msg").innerHTML = data;
-                    submitButton.value = "Submit";
-                    // Hide the success message after 3 seconds
-                    setTimeout(() => {
-                        document.querySelector("#msg").innerHTML = "";
-                    }, 3000);
-                });
+        fetch('https://script.google.com/macros/s/AKfycbyEUPJ0WAzVlxz4mV2NDry7fgAgBpcSMWICVOEwpNH1NA5AGCFdkdYVcQYe5Je7oLv11w/exec', {
+            method: 'POST',
+            body: data
+        })
+        .then(res => res.text())
+        .then(data => {
+            document.querySelector("#msg").innerHTML = data;
+
+            // Delay the button value reset
+            setTimeout(() => {
+                submitButton.value = "Submit";
+            }, 2000); // Adjust the delay time as needed
+
+            // Hide the success message after 3 seconds
+            setTimeout(() => {
+                document.querySelector("#msg").innerHTML = "";
+            }, 3000);
         });
-    </script>
-            </div> 
-    </section>
+    });
+</script>
+
 </body>
 </html>
