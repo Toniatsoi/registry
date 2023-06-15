@@ -95,7 +95,7 @@
             // Encode home address value
             const homeAddress = document.querySelector("#address").value;
             data.set("homeaddress", encodeURIComponent(homeAddress));
-            fetch('https://script.google.com/macros/s/AKfycbxNS0qAOeWCfPtRCv3LqxYQm-A4-LlrRQ31dV8x4Dq8GlwtZDInGP3wJdpYm_78uSScww/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbz1CtGSvEswTbHa856dmR6mX-b2ZGKF8f5DFScfa1rHo5W9dnZKPjjp1VhtcDE6RZun_g/exec', {
                     method: 'POST',
                     body: data
                 })
