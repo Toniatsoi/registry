@@ -48,6 +48,7 @@
     <section>
         <div class="struct">
             <h3>REGISTRATION FORM</h3>
+            <form id="registrationForm">
                             <label for="first">First name:</label><br>
                             <input type="text" id="first" name="first" value="first name"><br>
                             <label for="last">Last name:</label><br>
@@ -85,16 +86,21 @@
                     <input type="reset">
 
                 </form>
+                     </div> 
+    </section>
 
-    <script>
-        let form = document.querySelector("form");
+     <script>
+        let form = document.getElementById("registrationForm");
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            document.querySelector("#sub").value = "Submitting..";
+            let submitButton = form.querySelector('input[type="submit"]');
+            submitButton.value = "Submitting...";
+
             let data = new FormData(form);
             // Encode home address value
             const homeAddress = document.querySelector("#address").value;
             data.set("homeaddress", encodeURIComponent(homeAddress));
+
             fetch('https://script.google.com/macros/s/AKfycbz1CtGSvEswTbHa856dmR6mX-b2ZGKF8f5DFScfa1rHo5W9dnZKPjjp1VhtcDE6RZun_g/exec', {
                     method: 'POST',
                     body: data
@@ -102,13 +108,13 @@
                 .then(res => res.text())
                 .then(data => {
                     document.querySelector("#msg").innerHTML = data;
-                    document.querySelector("#sub").value = "Submit";
+                    submitButton.value = "Submit";
                     // Hide the success message after 3 seconds
                     setTimeout(() => {
                         document.querySelector("#msg").innerHTML = "";
                     }, 3000);
                 });
-        })
+        });
     </script>
             </div> 
     </section>
